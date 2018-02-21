@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant|Caveat');
+
+* {
+    box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 99%;
+}
+body {
+  background-color: #e9e9e9;
+  font-family: 'Assistant', sans-serif;
+  font-size: 1.8em;
+  text-shadow: -1px 1px #c9c9c9;
+  color:#333;
+  background-image: url('me.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+  background-size: 300px;
+}
+h1{
+  font-size: 1.7em;
+  font-weight: 100;
+}
+a:link, a:visited {
+  color: #333;
+  font-family: 'Caveat', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {text-decoration: none;}
+p {text-indent: 8%;text-align: justify;}
+.caveat{font-family: 'Caveat', sans-serif;}
+.row {
+  width:100%;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+  clear: both;
+}
+/* Tabs */
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: flex-end;
+	width: 100%;
+}
+.tab-input {
+  position: absolute;
+  opacity: 0;
+}
+.tab-label {
+  color: gray;
+	padding: 0 80px 0 0;
+	cursor: pointer;
+	font-size: 20px;
+  text-align: right;
+  z-index: 1;
+}
+.tab-label:hover {color: darkgray;}
+.tab-input:checked + .tab-label {
+  color: #c9c9c9;
+  text-shadow: none;
+}
+.tab-input:disabled + .tab-label::before {
+  content:'Kathy Li';
+  font-family: 'Caveat', sans-serif;
+  color: dimgray;
+  font-size: 2em;
+  text-shadow: -1px 1px #c9c9c9;
+  text-align:left;
+  display: inline-block;
+  width: 120px;
+  padding: 0 30px;
+}
+.tab-input:disabled + .tab-label {
+  color: darkgray;
+  text-shadow: none;
+  text-align:left;
+  padding: 0;
+  width:100%;
+  cursor: default;
+}
+.panel {
+	opacity:0;
+  height:1px;
+  margin:0;
+  width: 100%;
+  z-index: 1;
+  overflow:hidden;
+  order: 99;
+}
+.tab-input:checked + .tab-label + .panel {
+  opacity: 1;
+  height:auto;
+  transition: all ease-out 0.2s 0.2s;
+}
+/* Content */
+#intro, #work {padding: 0 350px 100px 12%;}
+#foot{
+  height:1px;
+  width: 100%;
+}
+
+/* Responsive layout */
+@media (max-width:775px) {
+  body {
+    font-size: 1.5em;
+    background-image: none;
+  }
+  #intro, #work {
+    padding: 0 9%;
+  }
+  #foot{
+    height:275px;
+    background-image: url('me.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 300px;
+    }
+}
+@media (max-width:500px) {
+  body {
+    font-size: 1.15em;
+  }
+  .tab-label {
+    width: 50%;
+    padding: 0 0 20px 0;
+    text-align: center;
+    min-width: inherit;
+  }
+  .tab-input:disabled + .tab-label {
+    padding: 0 0 25px 0;
+    text-align:center;
+  }
+
+}
